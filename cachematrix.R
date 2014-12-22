@@ -10,7 +10,7 @@ m <- NULL
                 m <<- NULL
         }
         get <- function() x
-        setinverse <- function(mean) m <<- x^-1
+        setinverse <- function(mean) m <<- solve(x)
         getinverse <- function() m
         list(set = set, get = get,
              setinverse = setinverse,
@@ -30,7 +30,7 @@ m <- x$getinverse()
                  return(m)
          }
          data <- x$get()
-         z<-data^-1
+         z<-solve(data)
 		m <-z
          x$setinverse(m)
          m
